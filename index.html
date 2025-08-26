@@ -52,6 +52,34 @@
       color: #666;
     }
   </style>
+  .table-container {
+  max-height: 400px;   /* 표 높이 제한 */
+  overflow-y: auto;    /* 세로 스크롤 */
+  margin: 0 auto;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 테이블 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  position: sticky;
+  top: 0;                /* 항상 맨 위에 고정 */
+  background: #f0f0f0;   /* 스크롤 시에도 배경 유지 */
+  z-index: 2;            /* 겹치지 않도록 */
+}
+
 </head>
 <body>
   <header>
