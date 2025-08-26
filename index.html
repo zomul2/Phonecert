@@ -2,35 +2,66 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>자료 목록</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조몰 최신시그 목록</title>
   <style>
- .table-container {
-  max-height: 400px;   /* 표 높이 제한 */
-  overflow-y: auto;    /* 세로 스크롤 */
-  margin: 0 auto;
-  width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center; /* 전체 가운데 정렬 */
+    }
 
-/* 테이블 */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+    header {
+      margin-top: 20px;
+    }
 
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
+    h1 {
+      font-size: 24px;
+      margin: 20px 0 10px 0;
+    }
 
-th {
-  position: sticky;
-  top: 0;                /* 항상 맨 위에 고정 */
-  background: #f0f0f0;   /* 스크롤 시에도 배경 유지 */
-  z-index: 2;            /* 겹치지 않도록 */
-}
+    input {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .table-container {
+      max-height: 400px;
+      overflow-y: auto;
+      margin: 0 auto; /* 표를 가운데 배치 */
+      width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #f1f1f1;
+      position: sticky;
+      top: 0;
+    }
+
+    footer {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -102,14 +133,19 @@ th {
   <div class="footer">총 49개의 곡이 있습니다.</div>
 
   <script>
-    // 검색 기능
-    document.getElementById("searchBox").addEventListener("keyup", function() {
-      let value = this.value.toLowerCase();
-      let rows = document.querySelectorAll("#songTable tbody tr");
-      rows.forEach(row => {
-        let text = row.textContent.toLowerCase();
-        row.style.display = text.includes(value) ? "" : "none";
-      });
+    const searchInput = document.getElementById("search");
+    const table = document.getElementById("songTable").getElementsByTagName("tbody")[0];
+
+    searchInput.addEventListener("keyup", function () {
+      const filter = searchInput.value.toLowerCase();
+      const rows = table.getElementsByTagName("tr");
+      for (let i = 0; i < rows.length; i++) {
+        const title = rows[i].getElementsByTagName("td")[1];
+        if (title) {
+          const textValue = title.textContent || title.innerText;
+          rows[i].style.display = textValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+        }
+      }
     });
   </script>
 </body>
