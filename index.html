@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <title>자료 목록</title>
   <style>
+    .table-container {
+  max-height: 400px;  /* 원하는 높이 (예: 400px) */
+  overflow-y: auto;   /* 세로 스크롤 가능 */
+  margin: 0 auto;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: linear-gradient(to bottom, #f9f6ff, #f2f7fa);
@@ -61,6 +69,7 @@
   </header>
 
   <main>
+    <div class="table-container">
     <table id="songTable">
       <thead>
         <tr><th>번호</th><th>제목</th></tr>
