@@ -18,7 +18,7 @@
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 28px;
       margin: 20px 0 10px 0;
     }
 
@@ -32,7 +32,8 @@
 
     .table-container {
       max-height: 450px;
-      overflow-y: auto;
+      overflow-y: auto;      /* 세로 스크롤만 */
+      overflow-x: hidden;    /* 가로 스크롤 제거 */
       margin: 0 auto; /* 표를 가운데 배치 */
       width: 500px;
       border-radius: 10px;
