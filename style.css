@@ -83,3 +83,8 @@ p {
 .toggle-btn:hover {
   background: #45a049;
 }
+.total-count {
+  text-align: center;   /* 가운데 정렬 */
+  margin-top: 20px;     /* 표와 문구 사이 간격 */
+  font-size: 16px;      /* 글씨 크기 */
+}
