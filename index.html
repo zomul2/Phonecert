@@ -2,22 +2,92 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>자료 정리 사이트</title>
-  <link rel="stylesheet" href="style.css">
+  <title>자료 목록</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(to bottom, #f9f6ff, #f2f7fa);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header img {
+      margin: 30px auto 10px;
+      width: 200px;
+      display: block;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 500px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    tr:hover {
+      background: #fafafa;
+    }
+    .footer {
+      margin: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
 </head>
-<body class="light">
-  <h1>자료 정리 메인 페이지</h1>
-  <button class="toggle-btn" onclick="toggleMode()">🌙/☀️ 모드 전환</button>
-  <ul>
-    <li><a href="list/죠물1.html">죠물1</a></li>
-    <li><a href="list/죠물2.html">죠물2</a></li>
-    <li><a href="list/죠물3.html">죠물3</a></li>
-  </ul>
+<body>
+  <header>
+    <img src="logo.png" alt="로고">
+    <h1>민춘 최신시그 목록</h1>
+    <input type="text" id="searchBox" placeholder="곡 제목으로 검색 (예: 신호등)">
+  </header>
+
+  <main>
+    <table id="songTable">
+      <thead>
+        <tr><th>번호</th><th>제목</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>119</td><td>바람피면 디지는거야</td></tr>
+        <tr><td>121</td><td>진압해</td></tr>
+        <tr><td>123</td><td>왜요왜요</td></tr>
+        <tr><td>125</td><td>내얼굴들어봐</td></tr>
+        <tr><td>127</td><td>카라니탐았다</td></tr>
+        <tr><td>134</td><td>무야</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <div class="footer">총 158개의 곡이 있습니다.</div>
+
   <script>
-    function toggleMode() {{
-      document.body.classList.toggle('dark');
-      document.body.classList.toggle('light');
-    }}
+    // 검색 기능
+    document.getElementById("searchBox").addEventListener("keyup", function() {
+      let value = this.value.toLowerCase();
+      let rows = document.querySelectorAll("#songTable tbody tr");
+      rows.forEach(row => {
+        let text = row.textContent.toLowerCase();
+        row.style.display = text.includes(value) ? "" : "none";
+      });
+    });
   </script>
 </body>
 </html>
