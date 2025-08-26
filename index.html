@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>자료 정리 사이트</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light">
   <h1>자료 정리 메인 페이지</h1>
+  <button class="toggle-btn" onclick="toggleMode()">🌙/☀️ 모드 전환</button>
   <ul>
     <li><a href="list/김예슬.html">김예슬</a></li>
     <li><a href="list/홍길동.html">홍길동</a></li>
     <li><a href="list/이순신.html">이순신</a></li>
   </ul>
+  <script>
+    function toggleMode() {{
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    }}
+  </script>
 </body>
 </html>

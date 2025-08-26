@@ -1,9 +1,18 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
   margin: 0;
   padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #eee;
 }
 
 h1 {
@@ -28,7 +37,12 @@ li {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.3s, color 0.3s;
+}
+
+body.dark li {
+  background: #2e2e2e;
+  color: #eee;
 }
 
 li:hover {
@@ -41,6 +55,10 @@ a {
   font-weight: bold;
 }
 
+body.dark a {
+  color: #80e27e;
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -48,4 +66,20 @@ a:hover {
 p {
   text-align: center;
   margin: 20px;
+}
+
+.toggle-btn {
+  display: block;
+  margin: 15px auto;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #45a049;
 }
