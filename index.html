@@ -21,7 +21,7 @@
     }
     
     header {
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     h1 {
@@ -38,16 +38,24 @@
     }
 
     .table-container {
-      max-height: 420px;
-      overflow-y: auto;
-      overflow-x: hidden;
-      margin: 0 auto;
-      width: 80%;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      background: white;
-    }
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 auto;
+  width: 80%;        /* 기본 폭 80% */
+  max-width: 600px;  /* PC에서는 최대 600px까지만 */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: white;
+}
 
+/* 📱 모바일 (화면이 600px 이하일 때) */
+@media (max-width: 600px) {
+  .table-container {
+    width: 80%;      /* 모바일에서도 80% 유지 */
+    max-width: none; /* 최대폭 제한 없음 */
+  }
+}
     table {
       width: 100%;
       border-collapse: collapse;
@@ -67,7 +75,7 @@
 
     footer {
       margin: 20px 0;
-      font-size: 12px;
+      font-size: 10px;
       color: #555;
     }
   </style>
