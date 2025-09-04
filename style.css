@@ -89,22 +89,13 @@ p {
   margin-top: 20px;     /* 표와 문구 사이 간격 */
   font-size: 12px;      /* 글씨 크기 */
 }
-@font-face {
-  font-family: 'OmyuPretty';
-  src: url('fonts/omyu-pretty.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@font-face{
+  font-family:'OmyuPretty';
+  src:url('fonts/omyu-pretty.ttf') format('truetype');
+  font-weight:normal;
+  font-style:normal;
 }
-
-body {
-  font-family: 'OmyuPretty', sans-serif;
-  font-size: 16px;
-  color: #222;
-}
-
-h1 {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 20px 0 15px 0;
-  color: #111;
+/* 전체에 강제 적용 */
+body{
+  font-family:'OmyuPretty', sans-serif !important;
 }
